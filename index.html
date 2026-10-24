@@ -96,9 +96,9 @@
 
       <ul class="nav__menu" id="nav-menu">
         <li><a class="nav__link" href="#about">About</a></li>
-        <li><a class="nav__link" href="#skills">Skills</a></li>
+        <li><a class="nav__link" href="#bench">Hands-on</a></li>
         <li><a class="nav__link" href="#projects">Projects</a></li>
-        <li><a class="nav__link" href="#bench">Bench</a></li>
+        <li><a class="nav__link" href="#skills">Skills</a></li>
         <li><a class="nav__link" href="#experience">Experience</a></li>
         <li><a class="nav__link nav__link--cta" href="#contact">Contact</a></li>
       </ul>
@@ -135,8 +135,8 @@
         </p>
 
         <div class="hero__cta reveal">
-          <a class="btn btn--primary" href="#projects">
-            View Projects
+          <a class="btn btn--primary" href="#bench">
+            See My Work
             <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>
           </a>
           <!-- EDIT: Replace assets/resume.pdf with your real resume (keep the same file name) -->
@@ -205,152 +205,11 @@
       </div>
     </section>
 
-    <!-- ================================ SKILLS ================================ -->
-    <section class="section section--alt" id="skills" aria-labelledby="skills-title">
-      <div class="container">
-        <header class="section-head reveal">
-          <p class="eyebrow"><span>02</span>Skills</p>
-          <h2 class="section-title" id="skills-title">Toolbox</h2>
-        </header>
-
-        <!-- EDIT: Add, remove, or rename categories and skills. Each <li> is one chip. -->
-        <div class="skills">
-          <article class="skill-card reveal">
-            <h3 class="skill-card__title">IT &amp; Hardware</h3>
-            <ul class="chips">
-              <li>PC troubleshooting</li>
-              <li>Printer &amp; copier repair</li>
-              <li>Cleaning &amp; repasting</li>
-              <li>Peripheral repair</li>
-              <li>Peripheral modding</li>
-              <li>Networking</li>
-              <li>Cybersecurity</li>
-              <li>Cloud computing</li>
-            </ul>
-          </article>
-
-          <article class="skill-card reveal">
-            <h3 class="skill-card__title">Web Development</h3>
-            <ul class="chips">
-              <li>PHP</li>
-              <li>JavaScript</li>
-              <li>TypeScript</li>
-              <li>SQL</li>
-              <li>HTML &amp; CSS</li>
-              <li>Next.js</li>
-              <li>React</li>
-              <li>Tailwind CSS</li>
-            </ul>
-          </article>
-
-          <article class="skill-card reveal">
-            <h3 class="skill-card__title">Tools &amp; Platforms</h3>
-            <ul class="chips">
-              <li>Git &amp; GitHub</li>
-              <li>Adobe Photoshop</li>
-              <li>MySQL / MariaDB</li>
-              <li>Supabase</li>
-              <li>XAMPP</li>
-              <li>Vercel</li>
-              <li>VS Code</li>
-            </ul>
-          </article>
-
-          <article class="skill-card reveal">
-            <h3 class="skill-card__title">Soft Skills</h3>
-            <ul class="chips">
-              <li>Problem solving</li>
-              <li>Customer service</li>
-              <li>Teamwork</li>
-              <li>Communication</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================ PROJECTS ================================ -->
-    <section class="section" id="projects" aria-labelledby="projects-title">
-      <div class="container">
-        <header class="section-head reveal">
-          <p class="eyebrow"><span>03</span>Projects</p>
-          <h2 class="section-title" id="projects-title">Selected work</h2>
-        </header>
-
-        <!-- EDIT: Each <article class="project"> is one card. Copy/paste a card to add more. -->
-        <div class="projects">
-
-          <!-- ---------- PROJECT 1: BMS Ermitaño (private repo, so no GitHub link) ---------- -->
-          <article class="project reveal">
-            <div class="project__media">
-              <img src="assets/project-bms.jpg" alt="Barangay Ermitaño resident portal on desktop and mobile, showing service tiles for RBI, certificates, complaints, household, and inquiries" width="1200" height="750" loading="lazy" decoding="async">
-            </div>
-            <div class="project__body">
-              <p class="project__meta">Capstone · Team of 5 · 2025–2026</p>
-              <h3 class="project__title">Barangay Ermitaño Management System</h3>
-              <p class="project__desc">
-                A web system for Barangay Ermitaño, San Juan City, with public, resident, and admin portals for resident records, household profiling, certificate and permit requests, and complaint/blotter cases.
-              </p>
-              <p class="project__desc">
-                <strong>My role:</strong> Lead / Full-stack Developer (400+ commits)
-              </p>
-              <ul class="project__list">
-                <li>Led the mobile experience: built the resident portal's mobile-first layout, dashboard, and its RBI, certificate, complaint, permit, and household modules.</li>
-                <li>Built admin features for announcements, officials, audit logs, and household approvals.</li>
-                <li>Created the socioeconomic profiling report with charts and PDF/CSV export.</li>
-                <li>Added English/Tagalog support, form validation, and in-app notifications.</li>
-              </ul>
-              <ul class="tags" aria-label="Technologies used">
-                <li>PHP</li>
-                <li>MySQL</li>
-                <li>JavaScript</li>
-                <li>Tailwind CSS</li>
-              </ul>
-              <div class="project__links">
-                <p class="project__note">Private repo · code available on request</p>
-              </div>
-            </div>
-          </article>
-
-          <!-- ---------- PROJECT 2: Wingman (private repo, so no GitHub link) ---------- -->
-          <article class="project reveal">
-            <div class="project__media">
-              <img src="assets/project-wingman.jpg" alt="Wingman homepage on desktop and mobile: a food discovery app with a search bar and food category filters" width="1200" height="750" loading="lazy" decoding="async">
-            </div>
-            <div class="project__body">
-              <p class="project__meta">Team project · 2026</p>
-              <h3 class="project__title">Wingman</h3>
-              <p class="project__desc">
-                A food-discovery app for finding carinderias, home cooks, and small food businesses nearby, with reviews and a dashboard for business owners.
-              </p>
-              <p class="project__desc">
-                <strong>My part:</strong> built most of the mobile front end, taking it from Figma wireframes to a working, deployed app, including the business page tabs, QR code generation with printable templates, and the settings pages.
-              </p>
-              <ul class="tags" aria-label="Technologies used">
-                <li>TypeScript</li>
-                <li>Next.js</li>
-                <li>React</li>
-                <li>Supabase</li>
-              </ul>
-              <div class="project__links">
-                <a class="link-arrow" href="https://wingman-main.vercel.app/" target="_blank" rel="noopener noreferrer">
-                  Live demo <span class="sr-only">of Wingman (opens in a new tab)</span>
-                  <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg>
-                </a>
-                <p class="project__note">Private repo</p>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
     <!-- ================================ ON THE BENCH ================================ -->
     <section class="section section--alt" id="bench" aria-labelledby="bench-title">
       <div class="container">
         <header class="section-head reveal">
-          <p class="eyebrow"><span>04</span>On the bench</p>
+          <p class="eyebrow"><span>02</span>On the bench</p>
           <h2 class="section-title" id="bench-title">Hands-on</h2>
           <p class="section-intro">Hardware I've opened up, cleaned, fixed and modded. Real jobs, shot on my phone.</p>
         </header>
@@ -441,6 +300,147 @@
               When the repairs are done, I ride.
             </figcaption>
           </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================ PROJECTS ================================ -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span>03</span>Projects</p>
+          <h2 class="section-title" id="projects-title">Selected work</h2>
+        </header>
+
+        <!-- EDIT: Each <article class="project"> is one card. Copy/paste a card to add more. -->
+        <div class="projects">
+
+          <!-- ---------- PROJECT 1: BMS Ermitaño (private repo, so no GitHub link) ---------- -->
+          <article class="project reveal">
+            <div class="project__media">
+              <img src="assets/project-bms.jpg" alt="Barangay Ermitaño resident portal on desktop and mobile, showing service tiles for RBI, certificates, complaints, household, and inquiries" width="1200" height="750" loading="lazy" decoding="async">
+            </div>
+            <div class="project__body">
+              <p class="project__meta">Capstone · Team of 5 · 2025–2026</p>
+              <h3 class="project__title">Barangay Ermitaño Management System</h3>
+              <p class="project__desc">
+                A web system for Barangay Ermitaño, San Juan City, with public, resident, and admin portals for resident records, household profiling, certificate and permit requests, and complaint/blotter cases.
+              </p>
+              <p class="project__desc">
+                <strong>My role:</strong> Lead / Full-stack Developer (400+ commits)
+              </p>
+              <ul class="project__list">
+                <li>Led the mobile experience: built the resident portal's mobile-first layout, dashboard, and its RBI, certificate, complaint, permit, and household modules.</li>
+                <li>Built admin features for announcements, officials, audit logs, and household approvals.</li>
+                <li>Created the socioeconomic profiling report with charts and PDF/CSV export.</li>
+                <li>Added English/Tagalog support, form validation, and in-app notifications.</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies used">
+                <li>PHP</li>
+                <li>MySQL</li>
+                <li>JavaScript</li>
+                <li>Tailwind CSS</li>
+              </ul>
+              <div class="project__links">
+                <p class="project__note">Private repo · code available on request</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- ---------- PROJECT 2: Wingman (private repo, so no GitHub link) ---------- -->
+          <article class="project reveal">
+            <div class="project__media">
+              <img src="assets/project-wingman.jpg" alt="Wingman homepage on desktop and mobile: a food discovery app with a search bar and food category filters" width="1200" height="750" loading="lazy" decoding="async">
+            </div>
+            <div class="project__body">
+              <p class="project__meta">Team project · 2026</p>
+              <h3 class="project__title">Wingman</h3>
+              <p class="project__desc">
+                A food-discovery app for finding carinderias, home cooks, and small food businesses nearby, with reviews and a dashboard for business owners.
+              </p>
+              <p class="project__desc">
+                <strong>My part:</strong> built most of the mobile front end, taking it from Figma wireframes to a working, deployed app, including the business page tabs, QR code generation with printable templates, and the settings pages.
+              </p>
+              <ul class="tags" aria-label="Technologies used">
+                <li>TypeScript</li>
+                <li>Next.js</li>
+                <li>React</li>
+                <li>Supabase</li>
+              </ul>
+              <div class="project__links">
+                <a class="link-arrow" href="https://wingman-main.vercel.app/" target="_blank" rel="noopener noreferrer">
+                  Live demo <span class="sr-only">of Wingman (opens in a new tab)</span>
+                  <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg>
+                </a>
+                <p class="project__note">Private repo</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================ SKILLS ================================ -->
+    <section class="section section--alt" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span>04</span>Skills</p>
+          <h2 class="section-title" id="skills-title">Toolbox</h2>
+        </header>
+
+        <!-- EDIT: Add, remove, or rename categories and skills. Each <li> is one chip. -->
+        <div class="skills">
+          <article class="skill-card reveal">
+            <h3 class="skill-card__title">IT &amp; Hardware</h3>
+            <ul class="chips">
+              <li>PC troubleshooting</li>
+              <li>Printer &amp; copier repair</li>
+              <li>Cleaning &amp; repasting</li>
+              <li>Peripheral repair</li>
+              <li>Peripheral modding</li>
+              <li>Networking</li>
+              <li>Cybersecurity</li>
+              <li>Cloud computing</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-card__title">Web Development</h3>
+            <ul class="chips">
+              <li>PHP</li>
+              <li>JavaScript</li>
+              <li>TypeScript</li>
+              <li>SQL</li>
+              <li>HTML &amp; CSS</li>
+              <li>Next.js</li>
+              <li>React</li>
+              <li>Tailwind CSS</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-card__title">Tools &amp; Platforms</h3>
+            <ul class="chips">
+              <li>Git &amp; GitHub</li>
+              <li>Adobe Photoshop</li>
+              <li>MySQL / MariaDB</li>
+              <li>Supabase</li>
+              <li>XAMPP</li>
+              <li>Vercel</li>
+              <li>VS Code</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-card__title">Soft Skills</h3>
+            <ul class="chips">
+              <li>Problem solving</li>
+              <li>Customer service</li>
+              <li>Teamwork</li>
+              <li>Communication</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>

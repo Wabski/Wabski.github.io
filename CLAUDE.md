@@ -26,7 +26,7 @@ Scroll animations are in `css/style.css` section 6 plus `main.js` section 4; eve
 - "On the bench" section (`#bench`): photo prints of his real repair/mod work from `assets/bench/`. Phone photos carry GPS EXIF: always strip metadata and crop out serial stickers, screens and other people. Captions must only claim what the photo shows or what he confirmed.
 
 ## Still to fill in
-Resume PDF, school start/graduation years, years for the family-business jobs. The user is undecided on a role, so the site targets OJT in IT support or web development. Don't add MedVantage (the user didn't work on it).
+Resume PDF, school start/graduation years, years for the family-business jobs. He leans IT support (web dev is secondary), so section order is: Hero → About → Hands-on (#bench) → Selected work (#projects) → Toolbox (#skills) → Background (#experience) → Contact. Keep the nav, the (01)–(06) eyebrow numbers and the alternating section--alt backgrounds in sync when reordering. Don't add MedVantage (the user didn't work on it).
 
 ## Tooling notes (this machine)
 - GitHub CLI is installed but may not be on PATH: `"C:\Program Files\GitHub CLI\gh.exe"`. The user is signed in as Wabski. Their projects are team repos owned by a collaborator, so list them with `gh api "user/repos?affiliation=owner,collaborator,organization_member"`.
