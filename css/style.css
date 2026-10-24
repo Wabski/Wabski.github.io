@@ -1,7 +1,7 @@
 /* =====================================================================
    PORTFOLIO STYLES
    ---------------------------------------------------------------------
-   Visual idea: a print shop. Newsprint paper, ink-black type, process-magenta ink,
+   Visual idea: a print shop. Newsprint paper, ink-black type, Bianchi celeste ink,
    yellow highlighter, halftone dots, registration and crop marks.
 
    1. Design tokens (EDIT colors & fonts here)
@@ -19,11 +19,16 @@
   --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
 
-  /* EDIT: Accent ink (light mode). Keep it dark enough to read on paper. */
-  --accent: #c2006e;
-  --accent-hover: #9e005a;
-  --accent-contrast: #ffffff;               /* text on top of accent */
-  --highlight: rgba(255, 210, 0, 0.55);     /* yellow highlighter */
+  /* EDIT: Accent colors (light mode).
+     --accent is a deep celeste dark enough for small text on paper;
+     --accent-fill is Bianchi celeste itself, used for big color areas. */
+  --accent: #08695f;
+  --accent-hover: #05544c;
+  --accent-contrast: #ffffff;               /* text on top of --accent */
+  --accent-fill: #7dd3c6;                   /* Bianchi celeste */
+  --accent-fill-hover: #63c7b8;
+  --on-fill: #151517;                       /* text on top of celeste */
+  --highlight: rgba(125, 211, 198, 0.6);    /* celeste highlighter */
 
   /* Light palette: paper and ink */
   --bg: #f2f2ee;
@@ -47,10 +52,13 @@
 
 /* EDIT: Dark mode palette (accent is brighter so it stays readable on dark) */
 :root[data-theme="dark"] {
-  --accent: #ff5cb8;
-  --accent-hover: #ff85ca;
+  --accent: #7dd3c6;
+  --accent-hover: #a3e2d8;
   --accent-contrast: #121214;
-  --highlight: rgba(255, 210, 0, 0.3);
+  --accent-fill: #7dd3c6;
+  --accent-fill-hover: #a3e2d8;
+  --on-fill: #121214;
+  --highlight: rgba(125, 211, 198, 0.3);
 
   --bg: #121214;
   --bg-alt: #19191c;
@@ -67,10 +75,13 @@
 /* Without JavaScript, follow the system setting */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --accent: #ff5cb8;
-    --accent-hover: #ff85ca;
+    --accent: #7dd3c6;
+    --accent-hover: #a3e2d8;
     --accent-contrast: #121214;
-    --highlight: rgba(255, 210, 0, 0.3);
+    --accent-fill: #7dd3c6;
+    --accent-fill-hover: #a3e2d8;
+    --on-fill: #121214;
+    --highlight: rgba(125, 211, 198, 0.3);
     --bg: #121214;
     --bg-alt: #19191c;
     --surface: #202024;
@@ -310,12 +321,12 @@ button, input, textarea {
 }
 
 .btn--primary {
-  background: var(--accent);
-  color: var(--accent-contrast);
+  background: var(--accent-fill);
+  color: var(--on-fill);
 }
 
 .btn--primary:hover {
-  background: var(--accent-hover);
+  background: var(--accent-fill-hover);
 }
 
 .btn--ghost {
@@ -690,7 +701,7 @@ html:not(.js) .nav__toggle {
   rotate: -4deg;
 }
 
-/* Name set big and wide, with a slightly off-register red plate behind it */
+/* Name set big and wide, with a slightly off-register celeste plate behind it */
 .hero__title {
   max-width: 9ch;
   font-size: clamp(3.25rem, 12vw, 9rem);
@@ -698,7 +709,7 @@ html:not(.js) .nav__toggle {
   font-weight: 900;
   line-height: 0.9;
   letter-spacing: -0.035em;
-  text-shadow: 0.045em 0.035em 0 var(--accent), 0 0 0 transparent;
+  text-shadow: 0.05em 0.04em 0 var(--accent-fill), 0 0 0 transparent;
 }
 
 .hero__headline {
@@ -812,7 +823,7 @@ html:not(.js) .nav__toggle {
   letter-spacing: -0.01em;
 }
 
-/* Yellow highlighter stroke that sweeps in on scroll */
+/* Celeste highlighter stroke that sweeps in on scroll */
 .marker {
   padding-inline: 0.1em;
   background: linear-gradient(var(--highlight), var(--highlight)) no-repeat 0 90% / 100% 0.55em;
@@ -1273,7 +1284,7 @@ html:not(.js) .nav__toggle {
 .field textarea:focus {
   outline: none;
   border-color: var(--text);
-  box-shadow: 4px 4px 0 var(--accent);
+  box-shadow: 4px 4px 0 var(--accent-fill);
 }
 
 .field input[aria-invalid="true"],
