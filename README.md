@@ -14,7 +14,7 @@ A bold, fast, single-page portfolio built with plain HTML, CSS, and vanilla Java
 ├── css/style.css         Colors, fonts, layout, light/dark themes, animations.
 ├── js/main.js            Theme toggle, mobile menu, scroll effects, contact form.
 ├── assets/
-│   ├── profile.svg       Photo placeholder (replace with your photo)
+│   ├── profile.jpg       Your photo (4:5 portrait, 800×1000)
 │   ├── project-*.jpg     Project images (desktop + phone mockups, 1200×750)
 │   ├── resume.pdf        Placeholder resume (replace with yours, same name)
 │   ├── og-image.png      Image shown when your link is shared (1200×630)
@@ -52,7 +52,7 @@ Every placeholder is wrapped in square brackets. In VS Code, press **Ctrl+Shift+
 **Tip:** do a final search for `[` before you share the site, to make sure nothing is left.
 
 ### 2. Add your photo and project images
-- **Photo:** save your photo as `assets/profile.jpg`, then change `assets/profile.svg` to `assets/profile.jpg` in `index.html`. A portrait (4:5) or square photo around 800px wide works best.
+- **Photo:** replace `assets/profile.jpg`, keeping the same name. A 4:5 portrait around 800×1000 works best. Strip location data (EXIF) before uploading.
 - **Projects:** save screenshots as `assets/project-name.jpg` (16:10 ratio, about 1200×750), then update the `src` in the project card. Update the `alt` text to describe the image. Never include real people's personal data in a screenshot.
 - **Keep images small:** compress them at [squoosh.app](https://squoosh.app) (aim for under 200 KB each).
 
