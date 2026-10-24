@@ -933,6 +933,27 @@ html:not(.js) .nav__toggle {
   color: var(--text);
 }
 
+.project__list {
+  display: grid;
+  gap: 0.4rem;
+  color: var(--text-muted);
+}
+
+.project__list li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.project__list li::before {
+  content: "";
+  position: absolute;
+  top: 0.75em;
+  left: 0;
+  width: 8px;
+  height: 2px;
+  background: var(--accent);
+}
+
 .project__links {
   display: flex;
   flex-wrap: wrap;

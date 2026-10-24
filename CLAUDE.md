@@ -13,6 +13,11 @@ Note: this repo is public and served as-is. Everything here, including this file
 - Projects from private repos get a `.project__note` ("Private repo…") instead of a GitHub link, so recruiters never hit a 404.
 - Only describe work the user did (check commit authorship before writing "My part" lines).
 
+## Facts confirmed with the user
+- BMS Ermitaño capstone: team of 5; Gabriel is Lead / Full-stack Developer (per the repo README Authors list). His commits use gabbrielwayne@gmail.com under several author names ("Gabriel:3", "Wabski", "gabs"), so match on that email, not the GitHub login.
+- LinkedIn: https://www.linkedin.com/in/gabriel-wayne-estrada/
+- His focus on both team projects is the mobile front end (BMS resident portal; Wingman from Figma wireframes to deployed). Project images are desktop+phone mockups built from screenshots. Never use screenshots that show real residents' personal data (PH Data Privacy Act).
+
 ## Still to fill in
 Photo, resume PDF, BMS screenshot (`assets/project-bms.jpg`), school start/graduation years, years for the family-business jobs. The user is undecided on a role, so the site targets OJT in IT support or web development. Don't add MedVantage (the user didn't work on it).
 
