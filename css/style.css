@@ -1,7 +1,7 @@
 /* =====================================================================
    PORTFOLIO STYLES
    ---------------------------------------------------------------------
-   Visual idea: a print shop. Warm paper, ink-black type, vermilion ink,
+   Visual idea: a print shop. Newsprint paper, ink-black type, process-magenta ink,
    yellow highlighter, halftone dots, registration and crop marks.
 
    1. Design tokens (EDIT colors & fonts here)
@@ -20,20 +20,20 @@
   --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
 
   /* EDIT: Accent ink (light mode). Keep it dark enough to read on paper. */
-  --accent: #b92c0c;
-  --accent-hover: #9a2309;
+  --accent: #c2006e;
+  --accent-hover: #9e005a;
   --accent-contrast: #ffffff;               /* text on top of accent */
   --highlight: rgba(255, 210, 0, 0.55);     /* yellow highlighter */
 
   /* Light palette: paper and ink */
-  --bg: #f4f1ea;
-  --bg-alt: #ebe6da;
-  --surface: #faf8f3;
-  --text: #171512;
-  --text-muted: #57534b;
-  --border: #d8d2c4;
-  --field-border: #8f897d;
-  --dot: rgba(23, 21, 18, 0.22);             /* halftone dots */
+  --bg: #f2f2ee;
+  --bg-alt: #e7e7e1;
+  --surface: #fafaf8;
+  --text: #151517;
+  --text-muted: #545458;
+  --border: #d4d4cd;
+  --field-border: #8a8a86;
+  --dot: rgba(21, 21, 23, 0.2);             /* halftone dots */
 
   /* Sizing */
   --container: 1200px;
@@ -47,19 +47,19 @@
 
 /* EDIT: Dark mode palette (accent is brighter so it stays readable on dark) */
 :root[data-theme="dark"] {
-  --accent: #ff6b3d;
-  --accent-hover: #ff8a63;
-  --accent-contrast: #141310;
+  --accent: #ff5cb8;
+  --accent-hover: #ff85ca;
+  --accent-contrast: #121214;
   --highlight: rgba(255, 210, 0, 0.3);
 
-  --bg: #141310;
-  --bg-alt: #1b1a16;
-  --surface: #211f1b;
-  --text: #f1ede4;
-  --text-muted: #aaa497;
-  --border: #34312b;
-  --field-border: #6f6a60;
-  --dot: rgba(241, 237, 228, 0.16);
+  --bg: #121214;
+  --bg-alt: #19191c;
+  --surface: #202024;
+  --text: #efefea;
+  --text-muted: #a7a7a3;
+  --border: #313135;
+  --field-border: #6c6c70;
+  --dot: rgba(239, 239, 234, 0.16);
 
   color-scheme: dark;
 }
@@ -67,18 +67,18 @@
 /* Without JavaScript, follow the system setting */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --accent: #ff6b3d;
-    --accent-hover: #ff8a63;
-    --accent-contrast: #141310;
+    --accent: #ff5cb8;
+    --accent-hover: #ff85ca;
+    --accent-contrast: #121214;
     --highlight: rgba(255, 210, 0, 0.3);
-    --bg: #141310;
-    --bg-alt: #1b1a16;
-    --surface: #211f1b;
-    --text: #f1ede4;
-    --text-muted: #aaa497;
-    --border: #34312b;
-    --field-border: #6f6a60;
-    --dot: rgba(241, 237, 228, 0.16);
+    --bg: #121214;
+    --bg-alt: #19191c;
+    --surface: #202024;
+    --text: #efefea;
+    --text-muted: #a7a7a3;
+    --border: #313135;
+    --field-border: #6c6c70;
+    --dot: rgba(239, 239, 234, 0.16);
     color-scheme: dark;
   }
 }

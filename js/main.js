@@ -32,7 +32,7 @@
     }
     // Keep the mobile browser bar in sync with the chosen theme
     themeColorMetas.forEach(function (meta) {
-      meta.setAttribute('content', theme === 'dark' ? '#141310' : '#F4F1EA');
+      meta.setAttribute('content', theme === 'dark' ? '#121214' : '#F2F2EE');
     });
   }
 
