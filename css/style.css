@@ -916,16 +916,36 @@ html:not(.js) .nav__toggle {
   font-size: 1.5rem;
 }
 
+.project__meta {
+  margin-bottom: -0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 .project__desc {
   color: var(--text-muted);
+}
+
+.project__desc strong {
+  color: var(--text);
 }
 
 .project__links {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 1.5rem;
   margin-top: auto;
   padding-top: 0.5rem;
+}
+
+.project__note {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
 }
 
 /* ---------- 5f. TIMELINE ---------- */

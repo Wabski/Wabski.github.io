@@ -4,7 +4,7 @@
   PERSONAL PORTFOLIO
   ---------------------------------------------------------------------
   HOW TO EDIT:
-  • Search this file for "[" to find every placeholder, e.g. [YOUR NAME].
+  • Search this file for "[" to find every placeholder, e.g. Gabriel Estrada.
   • Comments that start with "EDIT:" mark the spots you'll want to change.
   • Colors and fonts live in css/style.css (top of the file).
   =====================================================================
@@ -15,17 +15,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- EDIT: Page title and description (shown in Google results and browser tabs) -->
-  <title>[YOUR NAME] | [YOUR ROLE] Portfolio</title>
-  <meta name="description" content="[YOUR NAME] is a [YOUR ROLE] looking for internships and entry-level roles. See projects, skills, experience, and contact details.">
-  <meta name="author" content="[YOUR NAME]">
+  <title>Gabriel Estrada | [YOUR ROLE] Portfolio</title>
+  <meta name="description" content="Gabriel Estrada is a [YOUR ROLE] looking for internships and entry-level roles. See projects, skills, experience, and contact details.">
+  <meta name="author" content="Gabriel Estrada">
 
   <!-- EDIT: Open Graph tags (the preview card shown when your link is shared on LinkedIn, Slack, etc.)
-       Replace [YOUR SITE URL] with your full live URL, e.g. https://janedoe.github.io/portfolio -->
+       If you move the site or add a custom domain, update https://wabski.github.io below -->
+
   <meta property="og:type" content="website">
-  <meta property="og:title" content="[YOUR NAME] | [YOUR ROLE] Portfolio">
-  <meta property="og:description" content="Projects, skills, and experience from [YOUR NAME]. Open to internships and entry-level roles.">
-  <meta property="og:url" content="[YOUR SITE URL]/">
-  <meta property="og:image" content="[YOUR SITE URL]/assets/og-image.png">
+  <meta property="og:title" content="Gabriel Estrada | [YOUR ROLE] Portfolio">
+  <meta property="og:description" content="Projects, skills, and experience from Gabriel Estrada. Open to internships and entry-level roles.">
+  <meta property="og:url" content="https://wabski.github.io/">
+  <meta property="og:image" content="https://wabski.github.io/assets/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -81,7 +82,7 @@
   <header class="site-header" id="top">
     <nav class="nav container" aria-label="Main">
       <!-- EDIT: Your initials or short name -->
-      <a class="nav__logo" href="#hero" aria-label="[YOUR NAME], back to top">[YN]<span class="accent">.</span></a>
+      <a class="nav__logo" href="#hero" aria-label="Gabriel Estrada, back to top">GE<span class="accent">.</span></a>
 
       <div class="nav__actions">
         <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
@@ -118,7 +119,7 @@
 
         <!-- EDIT: Your name -->
         <h1 class="hero__title reveal" id="hero-title">
-          Hi, I'm <span class="hero__name">[YOUR NAME]<span class="hero__dot">.</span></span>
+          Hi, I'm <span class="hero__name">Gabriel Estrada<span class="hero__dot">.</span></span>
         </h1>
 
         <!-- EDIT: Punchy one-line headline -->
@@ -157,7 +158,7 @@
         <div class="about">
           <figure class="about__photo reveal">
             <!-- EDIT: Replace assets/profile.svg with your photo, e.g. assets/profile.jpg (square or 4:5 works best) -->
-            <img src="assets/profile.svg" alt="Portrait of [YOUR NAME]" width="480" height="600" loading="lazy" decoding="async">
+            <img src="assets/profile.svg" alt="Portrait of Gabriel Estrada" width="480" height="600" loading="lazy" decoding="async">
           </figure>
 
           <div class="about__body">
@@ -215,10 +216,9 @@
           <article class="skill-card reveal">
             <h3 class="skill-card__title">Languages</h3>
             <ul class="chips">
-              <li>[SKILL]</li>
+              <li>PHP</li>
               <li>JavaScript</li>
-              <li>Python</li>
-              <li>Java</li>
+              <li>TypeScript</li>
               <li>SQL</li>
               <li>HTML &amp; CSS</li>
             </ul>
@@ -227,23 +227,23 @@
           <article class="skill-card reveal">
             <h3 class="skill-card__title">Frameworks &amp; Libraries</h3>
             <ul class="chips">
-              <li>[SKILL]</li>
+              <li>Next.js</li>
               <li>React</li>
-              <li>Node.js</li>
-              <li>Express</li>
-              <li>Flask</li>
+              <li>Tailwind CSS</li>
+              <li>PHPMailer</li>
+              <li>FPDF</li>
             </ul>
           </article>
 
           <article class="skill-card reveal">
             <h3 class="skill-card__title">Tools &amp; Platforms</h3>
             <ul class="chips">
-              <li>[SKILL]</li>
               <li>Git &amp; GitHub</li>
+              <li>MySQL / MariaDB</li>
+              <li>Supabase</li>
+              <li>XAMPP</li>
+              <li>Vercel</li>
               <li>VS Code</li>
-              <li>Figma</li>
-              <li>Linux</li>
-              <li>Docker</li>
             </ul>
           </article>
 
@@ -272,61 +272,59 @@
         <!-- EDIT: Each <article class="project"> is one card. Copy/paste a card to add more. -->
         <div class="projects">
 
-          <!-- ---------- PROJECT 1 ---------- -->
+          <!-- ---------- PROJECT 1: BMS Ermitaño (private repo, so no GitHub link) ---------- -->
           <article class="project reveal">
             <div class="project__media">
-              <!-- EDIT: Screenshot of your project (16:10 works best, e.g. 1200x750) -->
-              <img src="assets/project-1.svg" alt="Screenshot of [PROJECT TITLE 1]" width="1200" height="750" loading="lazy" decoding="async">
+              <!-- EDIT: Add a screenshot of the system (16:10, e.g. 1200x750) as assets/project-bms.jpg and update src -->
+              <img src="assets/project-1.svg" alt="Screenshot of the Barangay Ermitaño Management System" width="1200" height="750" loading="lazy" decoding="async">
             </div>
             <div class="project__body">
-              <h3 class="project__title">[PROJECT TITLE 1]</h3>
+              <p class="project__meta">Capstone · Team of 4 · 2025–2026</p>
+              <h3 class="project__title">Barangay Ermitaño Management System</h3>
               <p class="project__desc">
-                [PROJECT DESCRIPTION: what it does, the problem it solves, and one result or thing you're proud of. Keep it to 2–3 lines.]
+                A web system for Barangay Ermitaño, San Juan City, with public, resident, and admin portals for resident records, household profiling, certificate and permit requests, and complaint/blotter cases.
+              </p>
+              <p class="project__desc">
+                <strong>My part:</strong> built much of the resident portal, the English/Tagalog toggle, household registration with validation, and the socioeconomic profiling report with PDF and CSV export.
               </p>
               <ul class="tags" aria-label="Technologies used">
-                <li>[TECH]</li>
-                <li>React</li>
-                <li>Node.js</li>
+                <li>PHP</li>
+                <li>MySQL</li>
+                <li>JavaScript</li>
+                <li>Tailwind CSS</li>
               </ul>
               <div class="project__links">
-                <!-- EDIT: Live demo + GitHub links -->
-                <a class="link-arrow" href="[LIVE DEMO URL]" target="_blank" rel="noopener noreferrer">
-                  Live demo <span class="sr-only">of [PROJECT TITLE 1] (opens in a new tab)</span>
-                  <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg>
-                </a>
-                <a class="link-arrow" href="https://github.com/[YOUR GITHUB USERNAME]/[REPO]" target="_blank" rel="noopener noreferrer">
-                  GitHub <span class="sr-only">repository for [PROJECT TITLE 1] (opens in a new tab)</span>
-                  <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>
-                </a>
+                <p class="project__note">Private repo · code available on request</p>
               </div>
             </div>
           </article>
 
-          <!-- ---------- PROJECT 2 ---------- -->
+          <!-- ---------- PROJECT 2: Wingman (private repo, so no GitHub link) ---------- -->
           <article class="project reveal">
             <div class="project__media">
-              <img src="assets/project-2.svg" alt="Screenshot of [PROJECT TITLE 2]" width="1200" height="750" loading="lazy" decoding="async">
+              <img src="assets/project-wingman.jpg" alt="Wingman homepage: a food discovery app with a search bar and a phone mockup listing nearby carinderias" width="1200" height="750" loading="lazy" decoding="async">
             </div>
             <div class="project__body">
-              <h3 class="project__title">[PROJECT TITLE 2]</h3>
+              <p class="project__meta">Team project · 2026</p>
+              <h3 class="project__title">Wingman</h3>
               <p class="project__desc">
-                [PROJECT DESCRIPTION: what it does, the problem it solves, and one result or thing you're proud of. Keep it to 2–3 lines.]
+                A food-discovery app for finding carinderias, home cooks, and small food businesses nearby, with reviews and a dashboard for business owners.
+              </p>
+              <p class="project__desc">
+                <strong>My part:</strong> built the business page tabs, QR code generation with printable templates, and the settings pages, and restyled the app to match the Figma design.
               </p>
               <ul class="tags" aria-label="Technologies used">
-                <li>[TECH]</li>
-                <li>Python</li>
-                <li>Flask</li>
-                <li>PostgreSQL</li>
+                <li>TypeScript</li>
+                <li>Next.js</li>
+                <li>React</li>
+                <li>Supabase</li>
               </ul>
               <div class="project__links">
-                <a class="link-arrow" href="[LIVE DEMO URL]" target="_blank" rel="noopener noreferrer">
-                  Live demo <span class="sr-only">of [PROJECT TITLE 2] (opens in a new tab)</span>
+                <a class="link-arrow" href="https://wingman-main.vercel.app/" target="_blank" rel="noopener noreferrer">
+                  Live demo <span class="sr-only">of Wingman (opens in a new tab)</span>
                   <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg>
                 </a>
-                <a class="link-arrow" href="https://github.com/[YOUR GITHUB USERNAME]/[REPO]" target="_blank" rel="noopener noreferrer">
-                  GitHub <span class="sr-only">repository for [PROJECT TITLE 2] (opens in a new tab)</span>
-                  <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>
-                </a>
+                <p class="project__note">Private repo</p>
               </div>
             </div>
           </article>
@@ -351,7 +349,7 @@
                   Live demo <span class="sr-only">of [PROJECT TITLE 3] (opens in a new tab)</span>
                   <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg>
                 </a>
-                <a class="link-arrow" href="https://github.com/[YOUR GITHUB USERNAME]/[REPO]" target="_blank" rel="noopener noreferrer">
+                <a class="link-arrow" href="https://github.com/Wabski/[REPO]" target="_blank" rel="noopener noreferrer">
                   GitHub <span class="sr-only">repository for [PROJECT TITLE 3] (opens in a new tab)</span>
                   <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>
                 </a>
@@ -447,9 +445,9 @@
               </a>
             </li>
             <li>
-              <a class="contact-link" href="https://github.com/[YOUR GITHUB USERNAME]" target="_blank" rel="noopener noreferrer">
+              <a class="contact-link" href="https://github.com/Wabski" target="_blank" rel="noopener noreferrer">
                 <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>
-                <span>github.com/[YOUR GITHUB USERNAME]</span>
+                <span>github.com/Wabski</span>
                 <span class="sr-only">(opens in a new tab)</span>
               </a>
             </li>
@@ -492,11 +490,11 @@
   <!-- ================================ FOOTER ================================ -->
   <footer class="site-footer">
     <div class="container footer">
-      <p class="footer__copy">&copy; <span id="year">2026</span> [YOUR NAME]. Built with HTML, CSS &amp; JS.</p>
+      <p class="footer__copy">&copy; <span id="year">2026</span> Gabriel Estrada. Built with HTML, CSS &amp; JS.</p>
       <!-- EDIT: Social links (same as Contact section) -->
       <ul class="socials">
         <li>
-          <a href="https://github.com/[YOUR GITHUB USERNAME]" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)">
+          <a href="https://github.com/Wabski" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)">
             <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>
           </a>
         </li>
