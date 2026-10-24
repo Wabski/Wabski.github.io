@@ -14,7 +14,7 @@ Note: this repo is public and served as-is. Everything here, including this file
 - Only describe work the user did (check commit authorship before writing "My part" lines).
 
 ## Still to fill in
-Role, headline, intro, bio, school/degree/city, timeline entries, email, LinkedIn, Formspree form ID (`[YOUR-FORM-ID]`), BMS screenshot (`assets/project-bms.jpg`), photo, resume PDF. Third project card is still a placeholder.
+Photo, resume PDF, BMS screenshot (`assets/project-bms.jpg`), school start/graduation years, years for the family-business jobs. The user is undecided on a role, so the site targets OJT in IT support or web development. Don't add MedVantage (the user didn't work on it).
 
 ## Tooling notes (this machine)
 - GitHub CLI is installed but may not be on PATH: `"C:\Program Files\GitHub CLI\gh.exe"`. The user is signed in as Wabski. Their projects are team repos owned by a collaborator, so list them with `gh api "user/repos?affiliation=owner,collaborator,organization_member"`.
