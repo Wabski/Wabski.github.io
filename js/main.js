@@ -109,7 +109,7 @@
   });
 
   // Give list items an index (--i) so CSS can cascade them in one by one
-  document.querySelectorAll('.facts, .chips').forEach(function (list) {
+  document.querySelectorAll('.facts, .chips, .certs__list').forEach(function (list) {
     Array.prototype.forEach.call(list.children, function (el, i) {
       el.style.setProperty('--i', i);
     });

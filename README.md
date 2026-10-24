@@ -17,6 +17,7 @@ A bold, fast, single-page portfolio built with plain HTML, CSS, and vanilla Java
 │   ├── profile.jpg       Your photo (4:5 portrait, 800×1000)
 │   ├── project-*.jpg     Project images (desktop + phone mockups, 1200×750)
 │   ├── bench/            "On the bench" photos of repairs and mods (4:5, 800×1000)
+│   ├── certs/            Certification badge images (from your public Credly pages)
 │   ├── resume.pdf        Placeholder resume (replace with yours, same name)
 │   ├── og-image.png      Image shown when your link is shared (1200×630)
 │   ├── favicon.svg/.png  Browser tab icon

@@ -1259,10 +1259,6 @@ html:not(.js) .nav__toggle {
   color: var(--text-muted);
 }
 
-.timeline__link {
-  margin-top: 0.4rem;
-  font-size: 0.9375rem;
-}
 
 .timeline__desc,
 .timeline__list {
@@ -1287,6 +1283,62 @@ html:not(.js) .nav__toggle {
   width: 8px;
   height: 2px;
   background: var(--accent);
+}
+
+/* Certifications: ruled columns with the official badge set like a stamp */
+.certs {
+  margin-top: clamp(3.5rem, 7vw, 5rem);
+}
+
+.certs__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 2rem 2.5rem;
+}
+
+.cert {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--text);
+}
+
+.cert__badge {
+  flex: none;
+  width: 84px;
+  height: 84px;
+  rotate: -6deg;
+  transition: rotate 0.4s var(--ease), scale 0.4s var(--ease);
+}
+
+.cert:hover .cert__badge {
+  rotate: 0deg;
+  scale: 1.06;
+}
+
+.cert__meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.cert__name {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  line-height: 1.15;
+}
+
+.cert__name span {
+  display: block;
+  font-size: 1.35rem;
+}
+
+.cert .link-arrow {
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
 }
 
 /* ---------- 5g. CONTACT ---------- */
@@ -1676,6 +1728,17 @@ html:not(.js) .nav__toggle {
 .js .print.is-visible img {
   filter: none;
   transition: filter 1.6s ease calc(var(--delay, 0s) + 0.5s);
+}
+
+/* Certification badges stamp down one after another */
+.js .certs .cert__badge {
+  opacity: 0;
+}
+
+.js .certs.is-visible .cert__badge {
+  opacity: 1;
+  animation: stamp 0.55s cubic-bezier(0.3, 1.4, 0.5, 1) backwards;
+  animation-delay: calc(0.3s + var(--i, 0) * 0.18s);
 }
 
 /* Highlighter strokes sweep across the key phrases */
