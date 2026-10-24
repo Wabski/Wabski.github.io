@@ -23,6 +23,8 @@ Scroll animations are in `css/style.css` section 6 plus `main.js` section 4; eve
 - LinkedIn: https://www.linkedin.com/in/gabriel-wayne-estrada/
 - His focus on both team projects is the mobile front end (BMS resident portal; Wingman from Figma wireframes to deployed). Project images are desktop+phone mockups built from screenshots. Never use screenshots that show real residents' personal data (PH Data Privacy Act).
 
+- "On the bench" section (`#bench`): photo prints of his real repair/mod work from `assets/bench/`. Phone photos carry GPS EXIF: always strip metadata and crop out serial stickers, screens and other people. Captions must only claim what the photo shows or what he confirmed.
+
 ## Still to fill in
 Resume PDF, school start/graduation years, years for the family-business jobs. The user is undecided on a role, so the site targets OJT in IT support or web development. Don't add MedVantage (the user didn't work on it).
 

@@ -98,6 +98,7 @@
         <li><a class="nav__link" href="#about">About</a></li>
         <li><a class="nav__link" href="#skills">Skills</a></li>
         <li><a class="nav__link" href="#projects">Projects</a></li>
+        <li><a class="nav__link" href="#bench">Bench</a></li>
         <li><a class="nav__link" href="#experience">Experience</a></li>
         <li><a class="nav__link nav__link--cta" href="#contact">Contact</a></li>
       </ul>
@@ -345,11 +346,110 @@
       </div>
     </section>
 
-    <!-- ========================= EDUCATION & EXPERIENCE ========================= -->
-    <section class="section section--alt" id="experience" aria-labelledby="experience-title">
+    <!-- ================================ ON THE BENCH ================================ -->
+    <section class="section section--alt" id="bench" aria-labelledby="bench-title">
       <div class="container">
         <header class="section-head reveal">
-          <p class="eyebrow"><span>04</span>Experience</p>
+          <p class="eyebrow"><span>04</span>On the bench</p>
+          <h2 class="section-title" id="bench-title">Hands-on</h2>
+          <p class="section-intro">Hardware I've opened up, cleaned, fixed and modded. Real jobs, shot on my phone.</p>
+        </header>
+
+        <!-- EDIT: Each <figure class="print"> is one photo print. Photos live in assets/bench/
+             (4:5 portrait, about 800x1000, location data stripped, no serial-number stickers). -->
+        <div class="bench">
+          <figure class="print print--pair reveal">
+            <div class="print__pair">
+              <div class="print__img">
+                <img src="assets/bench/fan-before.jpg" alt="Laptop fan with dust packed between its blades" width="800" height="1000" loading="lazy" decoding="async">
+                <span class="print__tag">Before</span>
+              </div>
+              <div class="print__img">
+                <img src="assets/bench/fan-after.jpg" alt="The same laptop fan after cleaning, blades clear" width="800" height="1000" loading="lazy" decoding="async">
+                <span class="print__tag">After</span>
+              </div>
+            </div>
+            <figcaption>
+              <span class="print__no">01</span>
+              <strong>Fan cleaning</strong>
+              Dust packed between the blades, cleared out so the laptop can breathe again.
+            </figcaption>
+          </figure>
+
+          <figure class="print reveal">
+            <div class="print__img">
+              <img src="assets/bench/old-paste.jpg" alt="Laptop motherboard with old, dried thermal paste and putty on the CPU, GPU and memory chips" width="800" height="1000" loading="lazy" decoding="async">
+            </div>
+            <figcaption>
+              <span class="print__no">02</span>
+              <strong>Repaste prep</strong>
+              Dried-out paste and putty on the CPU and GPU, cleaned off before fresh paste goes on.
+            </figcaption>
+          </figure>
+
+          <figure class="print reveal">
+            <div class="print__img">
+              <img src="assets/bench/furmark.jpg" alt="FurMark GPU stress test running, showing GPU temperature and usage" width="800" height="1000" loading="lazy" decoding="async">
+            </div>
+            <figcaption>
+              <span class="print__no">03</span>
+              <strong>Diagnose first</strong>
+              Stress-tested the GPU in FurMark and logged temps in HWiNFO before opening anything up.
+            </figcaption>
+          </figure>
+
+          <figure class="print reveal">
+            <div class="print__img">
+              <img src="assets/bench/switch-swap.jpg" alt="Mouse circuit board on a desk with two desoldered switches beside it and a soldering station behind" width="800" height="1000" loading="lazy" decoding="async">
+            </div>
+            <figcaption>
+              <span class="print__no">04</span>
+              <strong>Switch swap</strong>
+              Desoldered worn-out mouse switches to solder in new ones.
+            </figcaption>
+          </figure>
+
+          <figure class="print reveal">
+            <div class="print__img">
+              <img src="assets/bench/mouse-internals.jpg" alt="Inside a Razer mouse: scroll wheel, encoder and click switches on the circuit board" width="800" height="1000" loading="lazy" decoding="async">
+            </div>
+            <figcaption>
+              <span class="print__no">05</span>
+              <strong>Mouse teardown</strong>
+              A Razer mouse opened up: scroll encoder, switches and board.
+            </figcaption>
+          </figure>
+
+          <figure class="print reveal">
+            <div class="print__img">
+              <img src="assets/bench/controller-build.jpg" alt="Open controller case with arcade buttons wired to a controller board" width="800" height="1000" loading="lazy" decoding="async">
+            </div>
+            <figcaption>
+              <span class="print__no">06</span>
+              <strong>Controller build</strong>
+              A custom button controller: arcade buttons wired to a controller board.
+            </figcaption>
+          </figure>
+
+          <figure class="print reveal">
+            <div class="print__img">
+              <img src="assets/bench/cycling.jpg" alt="Road bike leaning against a tree at the edge of a park at sunset" width="800" height="1000" loading="lazy" decoding="async">
+            </div>
+            <figcaption>
+              <span class="print__no">07</span>
+              <strong>Off the bench</strong>
+              When the repairs are done, I ride.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= EDUCATION & EXPERIENCE ========================= -->
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span>05</span>Experience</p>
           <h2 class="section-title" id="experience-title">Background</h2>
         </header>
 
@@ -430,11 +530,11 @@
     </section>
 
     <!-- ================================ CONTACT ================================ -->
-    <section class="section" id="contact" aria-labelledby="contact-title">
+    <section class="section section--alt" id="contact" aria-labelledby="contact-title">
       <div class="container contact">
         <div class="contact__intro">
           <header class="section-head reveal">
-            <p class="eyebrow"><span>05</span>Contact</p>
+            <p class="eyebrow"><span>06</span>Contact</p>
             <h2 class="section-title" id="contact-title">Get in touch</h2>
           </header>
           <!-- EDIT: Contact intro -->

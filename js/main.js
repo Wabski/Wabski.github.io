@@ -102,7 +102,7 @@
   var revealEls = document.querySelectorAll('.reveal');
 
   // Stagger items that sit side by side in the same grid
-  document.querySelectorAll('.skills, .projects, .hero__inner').forEach(function (group) {
+  document.querySelectorAll('.skills, .projects, .bench, .hero__inner').forEach(function (group) {
     group.querySelectorAll(':scope > .reveal').forEach(function (el, i) {
       el.style.setProperty('--delay', (i * 0.08).toFixed(2) + 's');
     });
