@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<!--
+  =====================================================================
+  PERSONAL PORTFOLIO
+  ---------------------------------------------------------------------
+  HOW TO EDIT:
+  • Search this file for "[" to find every placeholder, e.g. [YOUR NAME].
+  • Comments that start with "EDIT:" mark the spots you'll want to change.
+  • Colors and fonts live in css/style.css (top of the file).
+  =====================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- EDIT: Page title and description (shown in Google results and browser tabs) -->
+  <title>[YOUR NAME] | [YOUR ROLE] Portfolio</title>
+  <meta name="description" content="[YOUR NAME] is a [YOUR ROLE] looking for internships and entry-level roles. See projects, skills, experience, and contact details.">
+  <meta name="author" content="[YOUR NAME]">
+
+  <!-- EDIT: Open Graph tags (the preview card shown when your link is shared on LinkedIn, Slack, etc.)
+       Replace [YOUR SITE URL] with your full live URL, e.g. https://janedoe.github.io/portfolio -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="[YOUR NAME] | [YOUR ROLE] Portfolio">
+  <meta property="og:description" content="Projects, skills, and experience from [YOUR NAME]. Open to internships and entry-level roles.">
+  <meta property="og:url" content="[YOUR SITE URL]/">
+  <meta property="og:image" content="[YOUR SITE URL]/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Theme color for mobile browser UI -->
+  <meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0B0B0F" media="(prefers-color-scheme: dark)">
+
+  <!-- Google Fonts: Space Grotesk (headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Apply saved/system theme before the page paints (prevents a flash of the wrong theme) -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      var theme = null;
+      try { theme = localStorage.getItem('theme'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      root.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <!-- Reusable icons (referenced below with <use href="#icon-...">) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M12 4v11m0 0l-5-5m5 5l5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11zM3.5 6.5l8.5 6.5 8.5-6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></g></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============================ HEADER / NAV ============================ -->
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Main">
+      <!-- EDIT: Your initials or short name -->
+      <a class="nav__logo" href="#hero" aria-label="[YOUR NAME], back to top">[YN]<span class="accent">.</span></a>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode">
+          <svg class="icon icon--sun" aria-hidden="true"><use href="#icon-sun"/></svg>
+          <svg class="icon icon--moon" aria-hidden="true"><use href="#icon-moon"/></svg>
+        </button>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+          <span class="nav__toggle-bar" aria-hidden="true"></span>
+          <span class="nav__toggle-bar" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <ul class="nav__menu" id="nav-menu">
+        <li><a class="nav__link" href="#about">About</a></li>
+        <li><a class="nav__link" href="#skills">Skills</a></li>
+        <li><a class="nav__link" href="#projects">Projects</a></li>
+        <li><a class="nav__link" href="#experience">Experience</a></li>
+        <li><a class="nav__link nav__link--cta" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ================================ HERO ================================ -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <!-- EDIT: Your availability status -->
+        <p class="hero__status reveal">
+          <span class="status-dot" aria-hidden="true"></span>
+          Open to internships &amp; entry-level roles
+        </p>
+
+        <!-- EDIT: Your name -->
+        <h1 class="hero__title reveal" id="hero-title">
+          Hi, I'm <span class="hero__name">[YOUR NAME]<span class="hero__dot">.</span></span>
+        </h1>
+
+        <!-- EDIT: Punchy one-line headline -->
+        <p class="hero__headline reveal">[YOUR HEADLINE, e.g. "I build fast, accessible web apps that people enjoy using."]</p>
+
+        <!-- EDIT: Short intro (1–2 sentences) -->
+        <p class="hero__intro reveal">
+          [SHORT INTRO, e.g. "I'm a Computer Science student at [YOUR SCHOOL] who loves turning ideas into working products, from database to UI."]
+        </p>
+
+        <div class="hero__cta reveal">
+          <a class="btn btn--primary" href="#projects">
+            View Projects
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>
+          </a>
+          <!-- EDIT: Replace assets/resume.pdf with your real resume (keep the same file name) -->
+          <a class="btn btn--ghost" href="assets/resume.pdf" download>
+            Download Resume
+            <svg class="icon" aria-hidden="true"><use href="#icon-download"/></svg>
+          </a>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#about" aria-label="Scroll to About section">
+        <span aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- ================================ ABOUT ================================ -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span>01</span>About</p>
+          <h2 class="section-title" id="about-title">A little about me.</h2>
+        </header>
+
+        <div class="about">
+          <figure class="about__photo reveal">
+            <!-- EDIT: Replace assets/profile.svg with your photo, e.g. assets/profile.jpg (square or 4:5 works best) -->
+            <img src="assets/profile.svg" alt="Portrait of [YOUR NAME]" width="480" height="600" loading="lazy" decoding="async">
+          </figure>
+
+          <div class="about__body">
+            <!-- EDIT: Your bio (2–3 short paragraphs) -->
+            <div class="about__text reveal">
+              <p class="lead">
+                [BIO PARAGRAPH 1, e.g. "I'm a [YEAR] [YOUR MAJOR] student at [YOUR SCHOOL] based in [YOUR CITY]."]
+              </p>
+              <p>
+                [BIO PARAGRAPH 2: what got you into this field, what you enjoy building or solving, and what makes you different.]
+              </p>
+              <p>
+                [BIO PARAGRAPH 3 (optional): something human, like hobbies, clubs, or what you're learning right now.]
+              </p>
+            </div>
+
+            <!-- EDIT: What you're looking for -->
+            <div class="callout reveal">
+              <h3 class="callout__title">What I'm looking for</h3>
+              <p>
+                [e.g. "A Summer 2027 software engineering internship or an entry-level role where I can ship real features, learn from experienced engineers, and grow fast."]
+              </p>
+            </div>
+
+            <!-- EDIT: Quick facts -->
+            <dl class="facts reveal">
+              <div class="facts__item">
+                <dt>Based in</dt>
+                <dd>[YOUR CITY, COUNTRY]</dd>
+              </div>
+              <div class="facts__item">
+                <dt>Studying</dt>
+                <dd>[YOUR DEGREE]</dd>
+              </div>
+              <div class="facts__item">
+                <dt>Available</dt>
+                <dd>[e.g. May 2027]</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================ SKILLS ================================ -->
+    <section class="section section--alt" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span>02</span>Skills</p>
+          <h2 class="section-title" id="skills-title">What I work with.</h2>
+        </header>
+
+        <!-- EDIT: Add, remove, or rename categories and skills. Each <li> is one chip. -->
+        <div class="skills">
+          <article class="skill-card reveal">
+            <h3 class="skill-card__title">Languages</h3>
+            <ul class="chips">
+              <li>[SKILL]</li>
+              <li>JavaScript</li>
+              <li>Python</li>
+              <li>Java</li>
+              <li>SQL</li>
+              <li>HTML &amp; CSS</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-card__title">Frameworks &amp; Libraries</h3>
+            <ul class="chips">
+              <li>[SKILL]</li>
+              <li>React</li>
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>Flask</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-card__title">Tools &amp; Platforms</h3>
+            <ul class="chips">
+              <li>[SKILL]</li>
+              <li>Git &amp; GitHub</li>
+              <li>VS Code</li>
+              <li>Figma</li>
+              <li>Linux</li>
+              <li>Docker</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-card__title">Soft Skills</h3>
+            <ul class="chips">
+              <li>[SKILL]</li>
+              <li>Communication</li>
+              <li>Teamwork</li>
+              <li>Problem solving</li>
+              <li>Fast learner</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================ PROJECTS ================================ -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span>03</span>Projects</p>
+          <h2 class="section-title" id="projects-title">Things I've built.</h2>
+        </header>
+
+        <!-- EDIT: Each <article class="project"> is one card. Copy/paste a card to add more. -->
+        <div class="projects">
+
+          <!-- ---------- PROJECT 1 ---------- -->
+          <article class="project reveal">
+            <div class="project__media">
+              <!-- EDIT: Screenshot of your project (16:10 works best, e.g. 1200x750) -->
+              <img src="assets/project-1.svg" alt="Screenshot of [PROJECT TITLE 1]" width="1200" height="750" loading="lazy" decoding="async">
+            </div>
+            <div class="project__body">
+              <h3 class="project__title">[PROJECT TITLE 1]</h3>
+              <p class="project__desc">
+                [PROJECT DESCRIPTION: what it does, the problem it solves, and one result or thing you're proud of. Keep it to 2–3 lines.]
+              </p>
+              <ul class="tags" aria-label="Technologies used">
+                <li>[TECH]</li>
+                <li>React</li>
+                <li>Node.js</li>
+              </ul>
+              <div class="project__links">
+                <!-- EDIT: Live demo + GitHub links -->
+                <a class="link-arrow" href="[LIVE DEMO URL]" target="_blank" rel="noopener noreferrer">
+                  Live demo <span class="sr-only">of [PROJECT TITLE 1] (opens in a new tab)</span>
+                  <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg>
+                </a>
+                <a class="link-arrow" href="https://github.com/[YOUR GITHUB USERNAME]/[REPO]" target="_blank" rel="noopener noreferrer">
+                  GitHub <span class="sr-only">repository for [PROJECT TITLE 1] (opens in a new tab)</span>
+                  <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ---------- PROJECT 2 ---------- -->
+          <article class="project reveal">
+            <div class="project__media">
+              <img src="assets/project-2.svg" alt="Screenshot of [PROJECT TITLE 2]" width="1200" height="750" loading="lazy" decoding="async">
+            </div>
+            <div class="project__body">
+              <h3 class="project__title">[PROJECT TITLE 2]</h3>
+              <p class="project__desc">
+                [PROJECT DESCRIPTION: what it does, the problem it solves, and one result or thing you're proud of. Keep it to 2–3 lines.]
+              </p>
+              <ul class="tags" aria-label="Technologies used">
+                <li>[TECH]</li>
+                <li>Python</li>
+                <li>Flask</li>
+                <li>PostgreSQL</li>
+              </ul>
+              <div class="project__links">
+                <a class="link-arrow" href="[LIVE DEMO URL]" target="_blank" rel="noopener noreferrer">
+                  Live demo <span class="sr-only">of [PROJECT TITLE 2] (opens in a new tab)</span>
+                  <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg>
+                </a>
+                <a class="link-arrow" href="https://github.com/[YOUR GITHUB USERNAME]/[REPO]" target="_blank" rel="noopener noreferrer">
+                  GitHub <span class="sr-only">repository for [PROJECT TITLE 2] (opens in a new tab)</span>
+                  <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ---------- PROJECT 3 ---------- -->
+          <article class="project reveal">
+            <div class="project__media">
+              <img src="assets/project-3.svg" alt="Screenshot of [PROJECT TITLE 3]" width="1200" height="750" loading="lazy" decoding="async">
+            </div>
+            <div class="project__body">
+              <h3 class="project__title">[PROJECT TITLE 3]</h3>
+              <p class="project__desc">
+                [PROJECT DESCRIPTION: what it does, the problem it solves, and one result or thing you're proud of. Keep it to 2–3 lines.]
+              </p>
+              <ul class="tags" aria-label="Technologies used">
+                <li>[TECH]</li>
+                <li>JavaScript</li>
+                <li>HTML &amp; CSS</li>
+              </ul>
+              <div class="project__links">
+                <a class="link-arrow" href="[LIVE DEMO URL]" target="_blank" rel="noopener noreferrer">
+                  Live demo <span class="sr-only">of [PROJECT TITLE 3] (opens in a new tab)</span>
+                  <svg class="icon" aria-hidden="true"><use href="#icon-external"/></svg>
+                </a>
+                <a class="link-arrow" href="https://github.com/[YOUR GITHUB USERNAME]/[REPO]" target="_blank" rel="noopener noreferrer">
+                  GitHub <span class="sr-only">repository for [PROJECT TITLE 3] (opens in a new tab)</span>
+                  <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================= EDUCATION & EXPERIENCE ========================= -->
+    <section class="section section--alt" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span>04</span>Education &amp; Experience</p>
+          <h2 class="section-title" id="experience-title">Where I've been.</h2>
+        </header>
+
+        <div class="timelines">
+          <!-- EDIT: Education. Each <li class="timeline__item"> is one entry, newest first. -->
+          <div class="timeline-group reveal">
+            <h3 class="timeline-group__title">Education</h3>
+            <ol class="timeline">
+              <li class="timeline__item">
+                <p class="timeline__date">[START] – [END / Expected]</p>
+                <h4 class="timeline__title">[YOUR DEGREE]</h4>
+                <p class="timeline__org">[YOUR SCHOOL]</p>
+                <p class="timeline__desc">[e.g. GPA, relevant coursework (Data Structures, Algorithms, Databases), honors, or clubs.]</p>
+              </li>
+              <li class="timeline__item">
+                <p class="timeline__date">[START] – [END]</p>
+                <h4 class="timeline__title">[CERTIFICATION / BOOTCAMP / ONLINE COURSE]</h4>
+                <p class="timeline__org">[PROVIDER]</p>
+                <p class="timeline__desc">[One line on what you learned or built.]</p>
+              </li>
+            </ol>
+          </div>
+
+          <!-- EDIT: Experience (jobs, internships, research, volunteering, leadership), newest first. -->
+          <div class="timeline-group reveal">
+            <h3 class="timeline-group__title">Experience</h3>
+            <ol class="timeline">
+              <li class="timeline__item">
+                <p class="timeline__date">[START] – [END / Present]</p>
+                <h4 class="timeline__title">[JOB TITLE]</h4>
+                <p class="timeline__org">[COMPANY / ORGANIZATION]</p>
+                <ul class="timeline__list">
+                  <li>[Achievement with a number, e.g. "Built an internal dashboard used by 40+ staff, cutting report time by 30%."]</li>
+                  <li>[Another achievement or responsibility.]</li>
+                </ul>
+              </li>
+              <li class="timeline__item">
+                <p class="timeline__date">[START] – [END]</p>
+                <h4 class="timeline__title">[ROLE, e.g. Teaching Assistant / Club Lead / Volunteer]</h4>
+                <p class="timeline__org">[ORGANIZATION]</p>
+                <ul class="timeline__list">
+                  <li>[What you did and the impact it had.]</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================ CONTACT ================================ -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container contact">
+        <div class="contact__intro">
+          <header class="section-head reveal">
+            <p class="eyebrow"><span>05</span>Contact</p>
+            <h2 class="section-title" id="contact-title">Let's work together.</h2>
+          </header>
+          <!-- EDIT: Contact intro -->
+          <p class="lead reveal">
+            I'm currently looking for internships and entry-level roles. Whether you have an opportunity, a question, or just want to say hi, my inbox is open.
+          </p>
+
+          <!-- EDIT: Your email, LinkedIn, and GitHub -->
+          <ul class="contact__links reveal">
+            <li>
+              <a class="contact-link" href="mailto:[YOUR EMAIL]">
+                <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>
+                <span>[YOUR EMAIL]</span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-link" href="https://www.linkedin.com/in/[YOUR LINKEDIN USERNAME]" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg>
+                <span>linkedin.com/in/[YOUR LINKEDIN USERNAME]</span>
+                <span class="sr-only">(opens in a new tab)</span>
+              </a>
+            </li>
+            <li>
+              <a class="contact-link" href="https://github.com/[YOUR GITHUB USERNAME]" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>
+                <span>github.com/[YOUR GITHUB USERNAME]</span>
+                <span class="sr-only">(opens in a new tab)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- EDIT: Contact form powered by Formspree (free).
+             1. Sign up at https://formspree.io and create a new form.
+             2. Copy your form ID (the part after /f/, e.g. "xyzabcde").
+             3. Replace [YOUR-FORM-ID] below with it. -->
+        <form class="contact-form reveal" action="https://formspree.io/f/[YOUR-FORM-ID]" method="POST" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <!-- Spam trap: real people never see or fill this field -->
+          <div class="hp" aria-hidden="true">
+            <label for="company">Leave this field empty</label>
+            <input id="company" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <button class="btn btn--primary btn--block" type="submit">
+            Send message
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>
+          </button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================ FOOTER ================================ -->
+  <footer class="site-footer">
+    <div class="container footer">
+      <p class="footer__copy">&copy; <span id="year">2026</span> [YOUR NAME]. Built with HTML, CSS &amp; JS.</p>
+      <!-- EDIT: Social links (same as Contact section) -->
+      <ul class="socials">
+        <li>
+          <a href="https://github.com/[YOUR GITHUB USERNAME]" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in a new tab)">
+            <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/[YOUR LINKEDIN USERNAME]" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in a new tab)">
+            <svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:[YOUR EMAIL]" aria-label="Email">
+            <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>
+          </a>
+        </li>
+      </ul>
+      <a class="footer__top" href="#hero">Back to top &uarr;</a>
+    </div>
+  </footer>
+</body>
+</html>
