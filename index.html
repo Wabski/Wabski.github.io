@@ -110,11 +110,8 @@
     <section class="hero" id="hero" aria-labelledby="hero-title">
       <div class="hero__bg" aria-hidden="true"></div>
       <div class="container hero__inner">
-        <!-- EDIT: Your availability status -->
-        <p class="hero__status reveal">
-          <span class="status-dot" aria-hidden="true"></span>
-          Looking for OJT · January 2027
-        </p>
+        <!-- EDIT: Your availability status (styled as a rubber stamp) -->
+        <p class="hero__status reveal">Open for OJT · Jan 2027</p>
 
         <!-- EDIT: Your name -->
         <h1 class="hero__title reveal" id="hero-title">
@@ -177,8 +174,9 @@
             <!-- EDIT: What you're looking for -->
             <div class="callout reveal">
               <h3 class="callout__title">What I'm looking for</h3>
-              <p>
-                An OJT placement for my second semester, starting January 2027. I'm open to IT support, technical support, or web development, anywhere I can troubleshoot real problems and learn from an experienced team.
+              <!-- <mark class="marker"> adds the highlighter stroke -->
+              <p class="callout__text">
+                An OJT placement for my second semester, starting <mark class="marker">January 2027</mark>, in <mark class="marker">IT support, tech support, or web development</mark>: anywhere I can troubleshoot real problems and learn from an experienced team.
               </p>
             </div>
 
@@ -444,21 +442,24 @@
           <ul class="contact__links reveal">
             <li>
               <a class="contact-link" href="mailto:gabbrielwayne@gmail.com">
-                <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>
-                <span>gabbrielwayne@gmail.com</span>
+                <span class="contact-link__label">Email</span>
+                <span class="contact-link__value">gabbrielwayne@gmail.com</span>
+                <span class="contact-link__arrow" aria-hidden="true">↗</span>
               </a>
             </li>
             <li>
               <a class="contact-link" href="https://www.linkedin.com/in/gabriel-wayne-estrada" target="_blank" rel="noopener noreferrer">
-                <svg class="icon" aria-hidden="true"><use href="#icon-linkedin"/></svg>
-                <span>linkedin.com/in/gabriel-wayne-estrada</span>
+                <span class="contact-link__label">LinkedIn</span>
+                <span class="contact-link__value">gabriel-wayne-estrada</span>
+                <span class="contact-link__arrow" aria-hidden="true">↗</span>
                 <span class="sr-only">(opens in a new tab)</span>
               </a>
             </li>
             <li>
               <a class="contact-link" href="https://github.com/Wabski" target="_blank" rel="noopener noreferrer">
-                <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>
-                <span>github.com/Wabski</span>
+                <span class="contact-link__label">GitHub</span>
+                <span class="contact-link__value">Wabski</span>
+                <span class="contact-link__arrow" aria-hidden="true">↗</span>
                 <span class="sr-only">(opens in a new tab)</span>
               </a>
             </li>
@@ -484,7 +485,7 @@
             <label for="company">Leave this field empty</label>
             <input id="company" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
           </div>
-          <button class="btn btn--primary btn--block" type="submit">
+          <button class="btn btn--primary" type="submit">
             Send message
             <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>
           </button>

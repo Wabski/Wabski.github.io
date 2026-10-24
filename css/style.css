@@ -14,12 +14,14 @@
   /* EDIT: Fonts (must match the Google Fonts link in index.html) */
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, monospace;
 
   /* EDIT: Accent color (light mode). Keep it dark enough to read on white. */
   --accent: #4f3cf0;
   --accent-hover: #3d2bd6;
   --accent-contrast: #ffffff;   /* text on top of accent */
   --accent-soft: rgba(79, 60, 240, 0.1);
+  --highlight: rgba(79, 60, 240, 0.26);  /* marker stroke behind key phrases */
 
   /* Light palette */
   --bg: #fafaf7;
@@ -48,6 +50,7 @@
   --accent-hover: #a99dff;
   --accent-contrast: #0b0b0f;
   --accent-soft: rgba(143, 128, 255, 0.14);
+  --highlight: rgba(143, 128, 255, 0.32);
 
   --bg: #0b0b0f;
   --bg-alt: #111117;
@@ -68,6 +71,7 @@
     --accent-hover: #a99dff;
     --accent-contrast: #0b0b0f;
     --accent-soft: rgba(143, 128, 255, 0.14);
+    --highlight: rgba(143, 128, 255, 0.32);
     --bg: #0b0b0f;
     --bg-alt: #111117;
     --surface: #16161d;
@@ -299,10 +303,6 @@ button, input, textarea {
 
 .btn--ghost:hover .icon {
   transform: translateY(2px);
-}
-
-.btn--block {
-  width: 100%;
 }
 
 .btn[disabled] {
@@ -632,34 +632,20 @@ html:not(.js) .nav__toggle {
   position: relative;
 }
 
+/* Availability as a rubber stamp */
 .hero__status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
+  display: inline-block;
   margin-bottom: 2rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--surface);
-  font-size: 0.9375rem;
-  font-weight: 500;
-}
-
-.status-dot {
-  position: relative;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #16a34a;
-}
-
-.status-dot::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: inherit;
-  animation: pulse 2s ease-out infinite;
+  padding: 0.4rem 0.85rem;
+  border: 4px double var(--accent);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  rotate: -4deg;
 }
 
 .hero__title {
@@ -777,46 +763,100 @@ html:not(.js) .nav__toggle {
   color: var(--text-muted);
 }
 
+/* "What I'm looking for": a typographic statement, not a box */
 .callout {
-  margin-top: 2rem;
-  padding: 1.5rem 1.75rem;
-  border-left: 4px solid var(--accent);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  background: var(--accent-soft);
+  margin-top: 2.5rem;
 }
 
 .callout__title {
-  margin-bottom: 0.5rem;
-  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
+.callout__title::before {
+  content: "→ ";
+  color: var(--accent);
+}
+
+.callout__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+/* Highlighter-marker stroke that sweeps in on scroll */
+.marker {
+  padding-inline: 0.1em;
+  background: linear-gradient(var(--highlight), var(--highlight)) no-repeat 0 88% / 100% 0.45em;
+  color: inherit;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Quick facts as a spec sheet with dotted leaders */
 .facts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--border);
 }
 
 .facts__item {
-  padding: 1rem 1.25rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--surface);
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding-block: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.facts__item::after {
+  content: "";
+  order: 1;
+  flex: 1;
+  min-width: 1.5rem;
+  border-bottom: 2px dotted color-mix(in srgb, var(--text-muted) 55%, transparent);
+  transform-origin: left;
 }
 
 .facts dt {
+  flex: none;
+  font-family: var(--font-mono);
   font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
 
 .facts dd {
-  margin: 0.25rem 0 0;
+  order: 2;
+  margin: 0;
   font-family: var(--font-display);
   font-size: 1.125rem;
   font-weight: 600;
+  text-align: right;
+}
+
+@media (max-width: 420px) {
+  .facts__item {
+    gap: 0.5rem;
+  }
+
+  .facts__item::after {
+    min-width: 0.75rem;
+  }
+
+  .facts dt {
+    letter-spacing: 0.02em;
+  }
+
+  .facts dd {
+    font-size: 1rem;
+  }
 }
 
 @media (min-width: 900px) {
@@ -884,7 +924,6 @@ html:not(.js) .nav__toggle {
   overflow: hidden;
   border-radius: var(--radius);
   background: var(--bg-alt);
-  box-shadow: var(--shadow);
 }
 
 .project__media img {
@@ -1011,6 +1050,7 @@ html:not(.js) .nav__toggle {
 
 .timeline__item {
   position: relative;
+  z-index: 1; /* dots sit above the timeline line */
 }
 
 .timeline__item::before {
@@ -1097,82 +1137,127 @@ html:not(.js) .nav__toggle {
   color: var(--text-muted);
 }
 
+/* Contact links as an index: label, big value, arrow */
 .contact__links {
-  display: grid;
-  gap: 0.75rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--border);
 }
 
 .contact-link {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 5.5rem 1fr auto;
+  align-items: baseline;
   gap: 1rem;
-  padding: 1rem 1.25rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--surface);
+  padding-block: 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.contact-link__label {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contact-link__value {
+  justify-self: start;
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2.2vw, 1.5rem);
   font-weight: 600;
   overflow-wrap: anywhere;
-  transition: border-color 0.2s ease, color 0.2s ease, transform 0.3s var(--ease);
+  background: linear-gradient(var(--accent), var(--accent)) no-repeat 0 100% / 0% 2px;
+  transition: background-size 0.4s var(--ease), color 0.2s ease;
 }
 
-.contact-link .icon {
-  width: 22px;
-  height: 22px;
+.contact-link__arrow {
+  font-size: 1.25rem;
   color: var(--accent);
+  transition: transform 0.3s var(--ease);
 }
 
-.contact-link:hover {
-  border-color: var(--accent);
+.contact-link:hover .contact-link__value {
   color: var(--accent);
-  transform: translateX(6px);
+  background-size: 100% 2px;
 }
 
+.contact-link:hover .contact-link__arrow {
+  transform: translate(3px, -3px);
+}
+
+/* Phones: label sits above the value so long addresses fit on one line */
+@media (max-width: 420px) {
+  .contact-link {
+    grid-template-columns: 1fr auto;
+    row-gap: 0.15rem;
+  }
+
+  .contact-link__label {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Open form: numbered labels and underline-only fields */
 .contact-form {
   display: grid;
-  gap: 1.25rem;
-  padding: clamp(1.5rem, 4vw, 2.5rem);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface);
-  box-shadow: var(--shadow);
+  gap: 2rem;
+  counter-reset: field;
 }
 
 .field {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.25rem;
+  counter-increment: field;
 }
 
 .field label {
-  font-size: 0.9375rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.field label::before {
+  content: counter(field, decimal-leading-zero) " / ";
+  color: var(--accent);
 }
 
 .field input,
 .field textarea {
   width: 100%;
-  padding: 0.85rem 1rem;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--bg);
+  padding: 0.6rem 0;
+  border: 0;
+  border-bottom: 1.5px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .field textarea {
-  min-height: 140px;
+  min-height: 120px;
   resize: vertical;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
 }
 
 .field input:focus,
 .field textarea:focus {
   outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-soft);
+  border-bottom-color: var(--accent);
+  box-shadow: 0 1.5px 0 var(--accent);
 }
 
 .field input[aria-invalid="true"],
 .field textarea[aria-invalid="true"] {
-  border-color: #dc2626;
+  border-bottom-color: #dc2626;
+}
+
+.contact-form .btn {
+  justify-self: start;
 }
 
 .hp {
@@ -1183,7 +1268,6 @@ html:not(.js) .nav__toggle {
 .form-status {
   min-height: 1.5em;
   font-weight: 500;
-  text-align: center;
 }
 
 .form-status.is-success {
@@ -1231,13 +1315,10 @@ html:not(.js) .nav__toggle {
   place-items: center;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  transition: border-color 0.2s ease, color 0.2s ease, transform 0.3s var(--ease);
+  transition: color 0.2s ease, transform 0.3s var(--ease);
 }
 
 .socials a:hover {
-  border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-3px);
 }
@@ -1252,9 +1333,10 @@ html:not(.js) .nav__toggle {
 }
 
 /* ---------- 6. ANIMATIONS ---------- */
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.7; }
-  100% { transform: scale(2.6); opacity: 0; }
+@keyframes stamp {
+  0% { opacity: 0; scale: 1.8; }
+  60% { opacity: 1; scale: 0.94; }
+  100% { opacity: 1; scale: 1; }
 }
 
 @keyframes scroll-hint {
@@ -1262,7 +1344,18 @@ html:not(.js) .nav__toggle {
   60% { transform: translateY(14px); opacity: 0; }
 }
 
-/* Scroll reveal: elements start hidden only when JS is running */
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-14px); }
+}
+
+@keyframes dot-pop {
+  50% { transform: scale(1.45); }
+}
+
+/* Everything below only hides content when JS is running (html.js),
+   so the page still reads fine without it. */
+
+/* Base scroll reveal: fade up */
 .js .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -1275,13 +1368,166 @@ html:not(.js) .nav__toggle {
   transform: none;
 }
 
+/* The availability stamp thunks down after the name appears */
+.js .reveal.hero__status {
+  transform: none;
+  transition: none;
+}
+
+.js .reveal.hero__status.is-visible {
+  animation: stamp 0.55s cubic-bezier(0.3, 1.4, 0.5, 1) 0.7s backwards;
+}
+
+/* Headings rise word by word from behind a mask (words wrapped in main.js) */
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  padding-block: 0.1em 0.14em;
+  margin-block: -0.1em -0.14em;
+  vertical-align: top;
+}
+
+.split-word > span {
+  display: inline-block;
+}
+
+.js .reveal .split-word > span {
+  transform: translateY(115%);
+  transition: transform 0.9s var(--ease);
+  transition-delay: calc(var(--delay, 0s) + 0.1s + var(--i, 0) * 70ms);
+}
+
+.js .reveal.is-visible .split-word > span {
+  transform: none;
+}
+
+/* Section eyebrow line draws out */
+.js .reveal .eyebrow::after {
+  width: 0;
+  transition: width 1s var(--ease) 0.3s;
+}
+
+.js .reveal.is-visible .eyebrow::after {
+  width: 3rem;
+}
+
+/* Project images: curtain wipe upward, then the screenshot settles from a zoom */
+.js .project .project__media {
+  clip-path: inset(100% 0 0 0 round var(--radius));
+  transition: clip-path 1.1s var(--ease) calc(var(--delay, 0s) + 0.15s);
+}
+
+.js .project.is-visible .project__media {
+  clip-path: inset(0 0 0 0 round var(--radius));
+}
+
+.js .project .project__media img {
+  transform: scale(1.15);
+}
+
+.js .project.is-visible .project__media img {
+  transform: none;
+  transition: transform 1.6s var(--ease) 0.15s;
+}
+
+.js .project.is-visible:hover .project__media img {
+  transform: scale(1.03);
+  transition: transform 0.8s var(--ease);
+}
+
+/* About photo: same wipe, then the offset frame slides out behind it */
+.js .about__photo img {
+  clip-path: inset(100% 0 0 0 round var(--radius));
+  transition: clip-path 1.1s var(--ease) 0.1s;
+}
+
+.js .about__photo.is-visible img {
+  clip-path: inset(0 0 0 0 round var(--radius));
+}
+
+.js .about__photo::before {
+  opacity: 0;
+  transform: translate(0, 0);
+  transition: transform 0.9s var(--ease) 0.8s, opacity 0.4s ease 0.8s;
+}
+
+.js .about__photo.is-visible::before {
+  opacity: 1;
+  transform: translate(16px, 16px);
+}
+
+.js .about__photo.is-visible:hover::before {
+  transform: translate(8px, 8px);
+  transition-delay: 0s;
+}
+
+/* Highlighter strokes sweep across the key phrases */
+.js .reveal .marker {
+  background-size: 0% 0.45em;
+  transition: background-size 0.9s var(--ease) 0.5s;
+}
+
+.js .reveal .marker + .marker {
+  transition-delay: 1.1s;
+}
+
+.js .reveal.is-visible .marker {
+  background-size: 100% 0.45em;
+}
+
+/* Spec-sheet leaders draw in, one row after another */
+.js .facts .facts__item::after {
+  transform: scaleX(0);
+  transition: transform 0.9s var(--ease);
+  transition-delay: calc(0.3s + var(--i, 0) * 0.15s);
+}
+
+.js .facts.is-visible .facts__item::after {
+  transform: none;
+}
+
+/* Skill list items cascade in */
+.js .skill-card li {
+  opacity: 0;
+}
+
+.js .skill-card.is-visible li {
+  opacity: 1;
+  animation: slide-in 0.6s var(--ease) backwards;
+  animation-delay: calc(var(--delay, 0s) + 0.25s + var(--i, 0) * 55ms);
+}
+
+/* Timeline: accent line fills with scroll progress (--progress set in main.js) */
+.timeline::after {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 5px;
+  width: 2px;
+  background: var(--accent);
+  transform: scaleY(var(--progress, 1));
+  transform-origin: top;
+}
+
+.js .timeline::after {
+  transform: scaleY(var(--progress, 0));
+}
+
+.timeline__item.is-reached::before {
+  background: var(--accent);
+  animation: dot-pop 0.5s var(--ease);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
   }
 
   .js .reveal {

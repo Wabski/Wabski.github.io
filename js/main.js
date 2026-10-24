@@ -4,7 +4,8 @@
    1. Theme toggle (light/dark, remembered between visits)
    2. Mobile menu
    3. Header border on scroll
-   4. Scroll reveal animations
+   4. Scroll reveal animations (word-by-word headings, image wipes,
+      staggered lists, timeline that fills as you scroll)
    5. Active nav link while scrolling
    6. Contact form (Formspree)
    7. Footer year
@@ -107,6 +108,50 @@
     });
   });
 
+  // Give list items an index (--i) so CSS can cascade them in one by one
+  document.querySelectorAll('.facts, .chips').forEach(function (list) {
+    Array.prototype.forEach.call(list.children, function (el, i) {
+      el.style.setProperty('--i', i);
+    });
+  });
+
+  // Wrap each word of a heading in a mask so it can rise into view.
+  // Screen readers get the original text through aria-label.
+  function splitWords(heading) {
+    var index = 0;
+    heading.setAttribute('aria-label', heading.textContent.replace(/\s+/g, ' ').trim());
+
+    (function walk(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+        if (child.nodeType === Node.ELEMENT_NODE) {
+          walk(child);
+          return;
+        }
+        if (child.nodeType !== Node.TEXT_NODE || !child.textContent.trim()) return;
+
+        var fragment = document.createDocumentFragment();
+        child.textContent.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) {
+            fragment.appendChild(document.createTextNode(part));
+            return;
+          }
+          var mask = document.createElement('span');
+          var word = document.createElement('span');
+          mask.className = 'split-word';
+          mask.setAttribute('aria-hidden', 'true');
+          word.textContent = part;
+          word.style.setProperty('--i', index++);
+          mask.appendChild(word);
+          fragment.appendChild(mask);
+        });
+        node.replaceChild(fragment, child);
+      });
+    })(heading);
+  }
+
+  document.querySelectorAll('.hero__title, .section-title, .project__title').forEach(splitWords);
+
   if (prefersReducedMotion || !('IntersectionObserver' in window)) {
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
   } else {
@@ -120,6 +165,40 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
     revealEls.forEach(function (el) { revealObserver.observe(el); });
+  }
+
+  // Timeline: the accent line fills as you scroll, and each dot lights up
+  // when the line reaches it
+  var timelines = document.querySelectorAll('.timeline');
+  var timelineTicking = false;
+
+  function updateTimelines() {
+    timelineTicking = false;
+    var trigger = window.innerHeight * 0.7;
+
+    timelines.forEach(function (timeline) {
+      var rect = timeline.getBoundingClientRect();
+      var progress = prefersReducedMotion ? 1 : (trigger - rect.top) / rect.height;
+      timeline.style.setProperty('--progress', Math.min(1, Math.max(0, progress)).toFixed(3));
+
+      timeline.querySelectorAll('.timeline__item').forEach(function (item) {
+        var reached = prefersReducedMotion || item.getBoundingClientRect().top + 12 < trigger;
+        item.classList.toggle('is-reached', reached);
+      });
+    });
+  }
+
+  function requestTimelineUpdate() {
+    if (!timelineTicking) {
+      timelineTicking = true;
+      window.requestAnimationFrame(updateTimelines);
+    }
+  }
+
+  if (timelines.length) {
+    window.addEventListener('scroll', requestTimelineUpdate, { passive: true });
+    window.addEventListener('resize', requestTimelineUpdate);
+    updateTimelines();
   }
 
   /* ---------- 5. ACTIVE NAV LINK ---------- */
