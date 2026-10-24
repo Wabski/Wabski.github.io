@@ -32,7 +32,7 @@
     }
     // Keep the mobile browser bar in sync with the chosen theme
     themeColorMetas.forEach(function (meta) {
-      meta.setAttribute('content', theme === 'dark' ? '#0B0B0F' : '#FAFAF7');
+      meta.setAttribute('content', theme === 'dark' ? '#141310' : '#F4F1EA');
     });
   }
 
@@ -167,13 +167,20 @@
     revealEls.forEach(function (el) { revealObserver.observe(el); });
   }
 
-  // Timeline: the accent line fills as you scroll, and each dot lights up
-  // when the line reaches it
+  // Scroll-linked effects, updated once per frame:
+  // - hero halftone drifts and the registration mark turns as you scroll
+  // - timeline line fills, and each marker lights up when the line reaches it
+  var hero = document.querySelector('.hero');
   var timelines = document.querySelectorAll('.timeline');
-  var timelineTicking = false;
+  var scrollTicking = false;
 
-  function updateTimelines() {
-    timelineTicking = false;
+  function updateScrollEffects() {
+    scrollTicking = false;
+
+    if (hero && !prefersReducedMotion && window.scrollY < hero.offsetHeight) {
+      hero.style.setProperty('--hero-scroll', window.scrollY.toFixed(0));
+    }
+
     var trigger = window.innerHeight * 0.7;
 
     timelines.forEach(function (timeline) {
@@ -188,18 +195,16 @@
     });
   }
 
-  function requestTimelineUpdate() {
-    if (!timelineTicking) {
-      timelineTicking = true;
-      window.requestAnimationFrame(updateTimelines);
+  function requestScrollEffects() {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      window.requestAnimationFrame(updateScrollEffects);
     }
   }
 
-  if (timelines.length) {
-    window.addEventListener('scroll', requestTimelineUpdate, { passive: true });
-    window.addEventListener('resize', requestTimelineUpdate);
-    updateTimelines();
-  }
+  window.addEventListener('scroll', requestScrollEffects, { passive: true });
+  window.addEventListener('resize', requestScrollEffects);
+  updateScrollEffects();
 
   /* ---------- 5. ACTIVE NAV LINK ---------- */
   var navLinks = document.querySelectorAll('.nav__link');

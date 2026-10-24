@@ -36,13 +36,13 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
   <!-- Theme color for mobile browser UI -->
-  <meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0B0B0F" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#F4F1EA" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141310" media="(prefers-color-scheme: dark)">
 
-  <!-- Google Fonts: Space Grotesk (headings) + Inter (body) -->
+  <!-- Google Fonts: Archivo (headings), IBM Plex Sans (body), IBM Plex Mono (labels) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Apply saved/system theme before the page paints (prevents a flash of the wrong theme) -->
   <script>
@@ -108,15 +108,22 @@
 
     <!-- ================================ HERO ================================ -->
     <section class="hero" id="hero" aria-labelledby="hero-title">
+      <!-- Print-shop details: halftone dots, a registration mark, and a CMYK color bar -->
       <div class="hero__bg" aria-hidden="true"></div>
+      <svg class="hero__reg" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="13" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <path d="M50 2v96M2 50h96" stroke="currentColor" stroke-width="2.5"/>
+      </svg>
+      <div class="hero__colorbar" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
       <div class="container hero__inner">
         <!-- EDIT: Your availability status (styled as a rubber stamp) -->
         <p class="hero__status reveal">Open for OJT · Jan 2027</p>
 
         <!-- EDIT: Your name -->
-        <h1 class="hero__title reveal" id="hero-title">
-          Hi, I'm <span class="hero__name">Gabriel Estrada<span class="hero__dot">.</span></span>
-        </h1>
+        <h1 class="hero__title reveal" id="hero-title">Gabriel Estrada</h1>
 
         <!-- EDIT: Punchy one-line headline -->
         <p class="hero__headline reveal">I like finding out why things break, and fixing them.</p>
@@ -138,9 +145,6 @@
           </a>
         </div>
       </div>
-      <a class="hero__scroll" href="#about" aria-label="Scroll to About section">
-        <span aria-hidden="true"></span>
-      </a>
     </section>
 
     <!-- ================================ ABOUT ================================ -->
@@ -148,7 +152,7 @@
       <div class="container">
         <header class="section-head reveal">
           <p class="eyebrow"><span>01</span>About</p>
-          <h2 class="section-title" id="about-title">A little about me.</h2>
+          <h2 class="section-title" id="about-title">The short version</h2>
         </header>
 
         <div class="about">
@@ -205,7 +209,7 @@
       <div class="container">
         <header class="section-head reveal">
           <p class="eyebrow"><span>02</span>Skills</p>
-          <h2 class="section-title" id="skills-title">What I work with.</h2>
+          <h2 class="section-title" id="skills-title">Toolbox</h2>
         </header>
 
         <!-- EDIT: Add, remove, or rename categories and skills. Each <li> is one chip. -->
@@ -269,7 +273,7 @@
       <div class="container">
         <header class="section-head reveal">
           <p class="eyebrow"><span>03</span>Projects</p>
-          <h2 class="section-title" id="projects-title">Things I've worked on.</h2>
+          <h2 class="section-title" id="projects-title">Selected work</h2>
         </header>
 
         <!-- EDIT: Each <article class="project"> is one card. Copy/paste a card to add more. -->
@@ -345,8 +349,8 @@
     <section class="section section--alt" id="experience" aria-labelledby="experience-title">
       <div class="container">
         <header class="section-head reveal">
-          <p class="eyebrow"><span>04</span>Education &amp; Experience</p>
-          <h2 class="section-title" id="experience-title">Where I've been.</h2>
+          <p class="eyebrow"><span>04</span>Experience</p>
+          <h2 class="section-title" id="experience-title">Background</h2>
         </header>
 
         <div class="timelines">
@@ -431,7 +435,7 @@
         <div class="contact__intro">
           <header class="section-head reveal">
             <p class="eyebrow"><span>05</span>Contact</p>
-            <h2 class="section-title" id="contact-title">Let's work together.</h2>
+            <h2 class="section-title" id="contact-title">Get in touch</h2>
           </header>
           <!-- EDIT: Contact intro -->
           <p class="lead reveal">
@@ -499,7 +503,7 @@
   <!-- ================================ FOOTER ================================ -->
   <footer class="site-footer">
     <div class="container footer">
-      <p class="footer__copy">&copy; <span id="year">2026</span> Gabriel Estrada. Built with HTML, CSS &amp; JS.</p>
+      <p class="footer__copy">&copy; <span id="year">2026</span> Gabriel Estrada · Hand-set in HTML, CSS &amp; JS, printed in Manila.</p>
       <!-- EDIT: Social links (same as Contact section) -->
       <ul class="socials">
         <li>

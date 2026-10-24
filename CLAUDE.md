@@ -13,6 +13,11 @@ Note: this repo is public and served as-is. Everything here, including this file
 - Projects from private repos get a `.project__note` ("Private repo…") instead of a GitHub link, so recruiters never hit a 404.
 - Only describe work the user did (check commit authorship before writing "My part" lines).
 
+## Design direction
+The user explicitly wants nothing that looks like a typical AI-generated site. The look is a print shop (his family business): paper background, ink-black type, vermilion accent, yellow highlighter, halftone dots, registration/crop marks, CMYK color bar, rubber-stamp label, hard offset-shadow buttons, square corners. Fonts: Archivo (wide, heavy headings), IBM Plex Sans (body), IBM Plex Mono (labels).
+Avoid: purple/indigo accents, Inter/Space Grotesk, pill buttons with glow shadows, frosted-glass headers, blurred gradient blobs, grid backgrounds, rounded card grids, pill tags, pulsing status dots, mouse scroll icons, cute sentence headings ("A little about me.").
+Scroll animations are in `css/style.css` section 6 plus `main.js` section 4; every hidden start state is scoped to `html.js` and switched off under `prefers-reduced-motion`. When regenerating `assets/og-image.png` or the favicons, use the same palette.
+
 ## Facts confirmed with the user
 - BMS Ermitaño capstone: team of 5; Gabriel is Lead / Full-stack Developer (per the repo README Authors list). His commits use gabbrielwayne@gmail.com under several author names ("Gabriel:3", "Wabski", "gabs"), so match on that email, not the GitHub login.
 - LinkedIn: https://www.linkedin.com/in/gabriel-wayne-estrada/
