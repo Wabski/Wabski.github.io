@@ -311,36 +311,35 @@ button, input, textarea {
   transform: none;
 }
 
-.chips,
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
+/* Skills as a plain list with hairline dividers */
 .chips li {
-  padding: 0.45rem 0.9rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--bg);
-  font-size: 0.9375rem;
+  padding-block: 0.6rem;
+  border-bottom: 1px solid var(--border);
   font-weight: 500;
-  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s var(--ease);
+  transition: color 0.2s ease, transform 0.25s var(--ease);
 }
 
 .chips li:hover {
-  border-color: var(--accent);
   color: var(--accent);
-  transform: translateY(-2px);
+  transform: translateX(4px);
+}
+
+/* Tech stack as plain text: PHP / MySQL / ... */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .tags li {
-  padding: 0.25rem 0.65rem;
-  border-radius: 6px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 600;
+}
+
+.tags li + li::before {
+  content: "/";
+  margin-inline: 0.6rem;
+  font-weight: 400;
+  color: var(--text-muted);
 }
 
 .link-arrow {
@@ -828,101 +827,107 @@ html:not(.js) .nav__toggle {
 }
 
 /* ---------- 5d. SKILLS ---------- */
+/* Open columns: a strong rule on top, a heading, then a plain list */
 .skills {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 3rem 2.5rem;
 }
 
 .skill-card {
-  padding: 2rem 1.75rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface);
-  transition: transform 0.35s var(--ease), box-shadow 0.35s ease, border-color 0.35s ease;
-}
-
-.skill-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent);
-  box-shadow: var(--shadow-lg);
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--text);
 }
 
 .skill-card__title {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
   font-size: 1.35rem;
 }
 
-.skill-card__title::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-radius: 3px;
-  background: var(--accent);
-}
-
 /* ---------- 5e. PROJECTS ---------- */
+/* Editorial layout: one project per row, image beside the write-up,
+   alternating sides on wide screens */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
-  gap: 1.5rem;
+  gap: clamp(4rem, 9vw, 7rem);
+  counter-reset: project;
 }
 
 .project {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface);
-  transition: transform 0.35s var(--ease), box-shadow 0.35s ease, border-color 0.35s ease;
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: start;
+  counter-increment: project;
 }
 
-.project:hover {
-  transform: translateY(-6px);
-  border-color: var(--accent);
-  box-shadow: var(--shadow-lg);
+@media (min-width: 900px) {
+  .project {
+    grid-template-columns: 7fr 5fr;
+  }
+
+  /* Image stays in view while the write-up scrolls past */
+  .project__media {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+
+  .project:nth-child(even) {
+    grid-template-columns: 5fr 7fr;
+  }
+
+  .project:nth-child(even) .project__media {
+    order: 2;
+  }
 }
 
 .project__media {
   overflow: hidden;
-  border-bottom: 1px solid var(--border);
+  border-radius: var(--radius);
   background: var(--bg-alt);
+  box-shadow: var(--shadow);
 }
 
 .project__media img {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  transition: transform 0.6s var(--ease);
+  transition: transform 0.8s var(--ease);
 }
 
 .project:hover .project__media img {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .project__body {
   display: flex;
-  flex: 1;
   flex-direction: column;
   gap: 1rem;
-  padding: 1.75rem;
+}
+
+/* Large outlined project number: 01, 02, ... */
+.project__body::before {
+  content: counter(project, decimal-leading-zero);
+  margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--accent);
 }
 
 .project__title {
-  font-size: 1.5rem;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
 }
 
 .project__meta {
   margin-bottom: -0.5rem;
   font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--text-muted);
 }
 
 .project__desc {
@@ -959,8 +964,8 @@ html:not(.js) .nav__toggle {
   flex-wrap: wrap;
   align-items: center;
   gap: 1.5rem;
-  margin-top: auto;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
 }
 
 .project__note {
