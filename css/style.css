@@ -1062,7 +1062,8 @@ html:not(.js) .nav__toggle {
   align-items: start;
 }
 
-.print--pair {
+.print--pair,
+.print--trio {
   grid-column: 1 / -1;
 }
 
@@ -1112,6 +1113,8 @@ html:not(.js) .nav__toggle {
 .print:nth-child(5) { --tilt: -1.3deg; }
 .print:nth-child(6) { --tilt: 0.8deg; }
 .print:nth-child(7) { --tilt: -1.1deg; }
+.print:nth-child(8) { --tilt: 1deg; }
+.print--trio:nth-child(n) { --tilt: -0.4deg; }  /* wide card: keep the tilt subtle */
 
 .print:hover {
   rotate: 0deg;
@@ -1119,10 +1122,15 @@ html:not(.js) .nav__toggle {
   box-shadow: 6px 10px 0 color-mix(in srgb, var(--text) 18%, transparent);
 }
 
-.print__pair {
+.print__pair,
+.print__trio {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 6px;
+}
+
+.print__trio {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .print__img {
@@ -1151,7 +1159,8 @@ html:not(.js) .nav__toggle {
   text-transform: uppercase;
 }
 
-.print__img + .print__img .print__tag {
+/* The last photo in a before/after set gets the celeste "After" tag */
+.print__img:last-child:not(:first-child) .print__tag {
   background: var(--accent-fill);
   color: var(--on-fill);
 }
